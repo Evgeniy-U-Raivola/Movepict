@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 public class Design extends JComponent implements ActionListener {
     private String path = "C:\\08_JAVA\\SimpleAnimation\\src\\j.png";
     Image buble=new ImageIcon(path).getImage();
@@ -11,10 +12,11 @@ public class Design extends JComponent implements ActionListener {
 
     public  void paint(Graphics g) {
         Graphics2D g1=(Graphics2D)g;
-        g1.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);//сглаживание вкл
+ //       g1.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);//сглаживание вкл
         g1.drawImage(buble,x,y,120,120,null);
         t.start();
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
          x+=3; y+=3;
