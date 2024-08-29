@@ -5,7 +5,7 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         Scanner t = new Scanner(System.in);
-        System.out.println("Ввод (1 , 2 , 0 ) :");
+        System.out.println("Ввод (1 -движение по прямой, 2 -по квадрату, 0 -выход ) :");
         int x = t.nextInt();
         if (x == 1) {
             JFrame Okno = new JFrame("Движение");
@@ -30,6 +30,6 @@ public class Main {
             Okno.setAlwaysOnTop(true);
 
         }
-        if (x == 0) {  System.out.println(" Этоконец "); }
+        if (x == 0) {  System.out.println(" #Этоконец# "); }
     }
 }
