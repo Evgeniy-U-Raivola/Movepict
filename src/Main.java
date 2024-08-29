@@ -3,12 +3,11 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws Exception  {
-        Scanner t=new Scanner(System.in);
-        System.out.println("Ввод (1 , 2) :");
-        int x=t.nextInt();
-        if (x==1) {
-
+    public static void main(String[] args) throws Exception {
+        Scanner t = new Scanner(System.in);
+        System.out.println("Ввод (1 , 2 , 0 ) :");
+        int x = t.nextInt();
+        if (x == 1) {
             JFrame Okno = new JFrame("Движение");
             Design d1 = new Design();
             Okno.add(d1);
@@ -19,6 +18,18 @@ public class Main {
             Okno.setVisible(true);
             Okno.setAlwaysOnTop(true);
         }
-        if (x==2) { System.out.println(" Этоконец ");}
+        if (x == 2) {
+            JFrame Okno = new JFrame("Ходим по квадрату");
+            Design2 d2=new Design2();
+            Okno.add(d2);
+            Okno.setBounds(0,0,500,500);
+            Okno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            Okno.setResizable(true);
+            Okno.setLocationRelativeTo(null);
+            Okno.setVisible(true);
+            Okno.setAlwaysOnTop(true);
+
+        }
+        if (x == 0) {  System.out.println(" Этоконец "); }
     }
 }

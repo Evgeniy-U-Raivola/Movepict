@@ -12,7 +12,6 @@ public class Design extends JComponent implements ActionListener {
 
     public  void paint(Graphics g) {
         Graphics2D g1=(Graphics2D)g;
- //       g1.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);//сглаживание вкл
         g1.drawImage(buble,x,y,120,120,null);
         t.start();
     }
