@@ -60,8 +60,4 @@ public class Design2 extends JComponent implements ActionListener {
        repaint();
     }
 
-    public void rotate_image() {
-
-
-    }
 }
