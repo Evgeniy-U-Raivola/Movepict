@@ -1,12 +1,17 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyListener;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) throws Exception {
         Scanner t = new Scanner(System.in);
-        System.out.println("Ввод (1 -движение по прямой, 2 -по квадрату, 3-произвольно,  0 -выход ) :");
+        System.out.println("");
+        System.out.println("Меню: 1 -движение по прямой, 2 -по квадрату, 3-произвольно/смена цвета,");
+        System.out.println("      4 - земля вокруг солнца, )");
+        System.out.println("      0 - ВЫХОД :");
+
         int x = t.nextInt();
         while (x!=0) {
             if (x == 1) {
@@ -44,9 +49,22 @@ public class Main {
                 Okno.getContentPane().setBackground(Color.CYAN);
                 Okno.add(d3);
             }
+            if (x==4) {
+                JFrame Okno = new JFrame("Земля,Земля, я Юпитер");
+                Solaris s1=new Solaris();
+
+                Okno.setBounds(0,0,800,700);
+                Okno.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                Okno.setResizable(false);
+                Okno.setLocationRelativeTo(null);
+                Okno.setVisible(true);
+                Okno.setAlwaysOnTop(true);
+                Okno.getContentPane().setBackground(Color.BLACK);
+                Okno.add(s1);
+            }
             x = t.nextInt();
         }
-        System.out.println(" #Этоконец# ");
+        System.out.println("                                #ЭТОКОНЕЦ# ");
         System.exit(0);
     }
 }

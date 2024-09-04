@@ -16,7 +16,9 @@ public class Design3 extends JComponent implements ActionListener {
     Timer t3=new Timer(10,this);
     BufferedImage sound;
     boolean isChange=false, start=true;
-    int colornewR=100,colornewG=20,colornewB=80;
+    int colornewR=(int) (Math.random() * 256);
+    int colornewG=(int) (Math.random() * 256);
+    int colornewB=(int) (Math.random() * 256);
 
     public void paint(Graphics g) {
           Graphics2D g3=(Graphics2D)g;
@@ -29,7 +31,7 @@ public class Design3 extends JComponent implements ActionListener {
               for (int j = 0; j < raster.getHeight(); j++) {
                        for (int i = 0; i < raster.getWidth(); i++) {
                           int[] pixel = raster.getPixel(i, j, new int[4]);
-                           pixel[0] = colornewR;
+                           pixel[0] =colornewR;
                            pixel[1]=colornewG;
                            pixel[2]=colornewB;
                            raster.setPixel(i, j, pixel);
