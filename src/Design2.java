@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.geom.AffineTransform;
 
 public class Design2 extends JComponent implements ActionListener {
-    private  String path2="C:\\08_JAVA\\SimpleAnimation\\src\\javaLabel.jpg";
+    final  String path2="C:\\08_JAVA\\SimpleAnimation\\src\\javaLabel.jpg";
     Image label=new ImageIcon(path2).getImage();
     private int x2=20,y2=20;
     Timer t2=new Timer(10,this);
