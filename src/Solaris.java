@@ -9,24 +9,20 @@ import java.io.File;
 import java.io.IOException;
 
 public class Solaris extends JComponent implements ActionListener {
-    final String path4_1="C:\\08_JAVA\\SimpleAnimation\\src\\CartoonSun.png";
-    final String path4_2="C:\\08_JAVA\\SimpleAnimation\\src\\EarthInHands.png";
     final String path5_1="C:\\08_JAVA\\SimpleAnimation\\src\\Sun.png";
     final String path5_2="C:\\08_JAVA\\SimpleAnimation\\src\\Earth.png";
     private int x51=300,y51=250, x52=50,y52=270;
     private int radius=290;
     private double tGrad=0, resx,resy,rotGrad=0;
 
-    private BufferedImage sun,earth,sunA,earthA;
+    private BufferedImage sun,earth;
 
     Timer t4=new Timer(10,this);
 
     public void paint(Graphics g) {
         Graphics2D g4=(Graphics2D)g;
         try {   sun = ImageIO.read(new File(path5_1));
-                earth=ImageIO.read(new File(path5_2));
-                sunA=ImageIO.read(new File(path4_1));
-                earthA=ImageIO.read(new File(path4_2));}
+                earth=ImageIO.read(new File(path5_2)); }
         catch (IOException e) { e.printStackTrace(); }
 
         g4.drawImage(sun,x51,y51,150,150,null);

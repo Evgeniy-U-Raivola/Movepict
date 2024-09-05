@@ -9,7 +9,7 @@ public class Main {
         Scanner t = new Scanner(System.in);
         System.out.println("");
         System.out.println("Меню: 1 -движение по прямой, 2 -по квадрату, 3-произвольно/смена цвета,");
-        System.out.println("      4 - земля вокруг солнца, )");
+        System.out.println("      4 -земля вокруг солнца, 5 - солнечная система)");
         System.out.println("      0 - ВЫХОД :");
 
         int x = t.nextInt();
@@ -61,6 +61,20 @@ public class Main {
                 Okno.setAlwaysOnTop(true);
                 Okno.getContentPane().setBackground(Color.BLACK);
                 Okno.add(s1);
+            }
+            if (x==5) {
+                JFrame Okno = new JFrame(" Солнечная система");
+                SolarSystem s2=new SolarSystem();
+
+                Okno.setBounds(0,0,1000,800);
+                Okno.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                Okno.setLocationRelativeTo(null);
+                Okno.setResizable(false);
+                Okno.setVisible(true);
+                Okno.setAlwaysOnTop(true);
+                Okno.getContentPane().setBackground(Color.BLACK);
+                Okno.add(s2);
+
             }
             x = t.nextInt();
         }
