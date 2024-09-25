@@ -26,7 +26,6 @@ public class Solaris extends JComponent implements ActionListener {
         catch (IOException e) { e.printStackTrace(); }
 
         g4.drawImage(sun,x51,y51,150,150,null);
-//        g4.drawImage(earth,x52,y52,70,70,null);
         AffineTransform origLabel;
         origLabel=g4.getTransform();
         AffineTransform newLabel=(AffineTransform)origLabel.clone();
@@ -39,16 +38,13 @@ public class Solaris extends JComponent implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        resx=radius*Math.cos(tGrad);
-        x52 = ((int) resx)+360;
-        resy=radius*Math.sin(tGrad);
-        y52=((int) resy)+300;
-
+           resx=radius*Math.cos(tGrad);
+           x52 = ((int) resx)+360;
+           resy=radius*Math.sin(tGrad);
+           y52=((int) resy)+300;
         repaint();
-        tGrad+=0.01;
-        rotGrad+=0.05;
-        if (tGrad==361) { tGrad=0; }
-        if (rotGrad==361) { tGrad=0; }
+           tGrad=tGrad==361?0:tGrad+0.01;
+           rotGrad=rotGrad==-361?0:rotGrad-0.05;
 
     }
 
