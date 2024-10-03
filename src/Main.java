@@ -66,32 +66,32 @@ public class Main extends JFrame{
             }
             if (x == 5) {
 // . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-String[][] planets=new String[][] {new String[]{"Mercury","60"},new String[]{"Venus","90"},
-                   new String[]{"Earth","140"},new String[]{"Mars","170"},new String[]{"Jupiter","250"},
-                   new String[]{"Saturn","300"},new String[]{"Uranus","330"} ,new String[]{"Neptune","360"}};
-String planet;
-int r=0;
+             String[][] planets=new String[][] {new String[]{"Mercury","105","5"},new String[]{"Venus","140","15"},
+                   new String[]{"Earth","160","20"},new String[]{"Mars","200","35"},new String[]{"Jupiter","220","60"},
+                   new String[]{"Saturn","270","90"},new String[]{"Uranus","300","130"} ,new String[]{"Neptune","330","150"}};
+             String planet;
+             int r,d;
 
-                Okno1.setBounds(0, 0, 1000, 800);
-                Okno1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                Okno1.setLocationRelativeTo(null);
-                Okno1.setResizable(false);
-                Okno1.setAlwaysOnTop(true);
-                Okno1.getContentPane().setLayout(null);
-                Okno1.getContentPane().setBackground(Color.BLACK);
-                Sun s=new Sun();
-                for (int i = 0; i < 8; i++) {
-                    planet=planets[i][0];
-                    r=Integer.valueOf(planets[i][1]);
-                    Sun xx=new Sun(planet,r);
-                }
-                Okno1.setVisible(true);
+                   Okno1.setBounds(0, 0, 1000, 730);
+                   Okno1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                   Okno1.setLocationRelativeTo(null);
+                   Okno1.setResizable(false);
+//                   Okno1.setAlwaysOnTop(true);
+                   Okno1.getContentPane().setLayout(null);
+                   Okno1.getContentPane().setBackground(Color.BLACK);
+                   Sun s=new Sun();
+                       for (int i = 0; i < 8; i++) {
+                           planet=planets[i][0];
+                           r=Integer.valueOf(planets[i][1]);
+                           d=Integer.valueOf(planets[i][2]);
+                           new Run(new Sun(planet,r),d).start();
+                       }
+                   Okno1.setVisible(true);
 
-            }
-
+             }
                 x = t.nextInt();
             }
-            System.out.println("                                #ЭТОКОНЕЦ# ");
+            System.out.println("                   ###    ### #ЭТОКОНЕЦ# ###   ### ");
             System.exit(0);
         }
 
@@ -100,7 +100,7 @@ int r=0;
         private String planet="";
         private int r=70;
         String path61 = "C:\\08_JAVA\\SimpleAnimation\\src\\media\\Sun.png";
-        public int x71 = 370, y71 = 230, wsun,hsun,wpl,hpl;
+        public int x71 = 430, y71 = 300, wsun,hsun,wpl,hpl;
         public JLabel sun2, plxx2;
 
                  public Sun() throws IOException {
@@ -114,6 +114,7 @@ int r=0;
                  public Sun(String planet, int r) throws IOException{
                      this.planet = planet;
                      this.r=r;
+
                      BufferedImage plxx = ImageIO.read(new File("C:\\08_JAVA\\SimpleAnimation\\src\\media\\"+planet+".png"));
                      wpl=plxx.getWidth();
                      hpl=plxx.getHeight();
@@ -123,6 +124,28 @@ int r=0;
                  }
     }
 
+    public static class Run  extends Thread{
+        private int delay;
+        Sun planet;
+        private double tGrad;
+        public Run(Sun sun, int delay) {
+            this.planet=sun;
+            this.delay=delay;
+        }
+        @Override
+        public void run() {
+            for (int i=0; i<1750;) {
+                try {
+                    Thread.sleep(delay);
+                    planet.plxx2.setBounds((int) (planet.r * Math.cos(tGrad * Math.PI / 180) + 470), (int) (planet.r * Math.sin(tGrad * Math.PI / 180) + 330), planet.wpl, planet.hpl);
+                } catch (InterruptedException ex) {
+                    Thread.currentThread().interrupt();
+                }
+                tGrad = tGrad == 350 ? 0 : tGrad + 0.2;
+                i=i==1749? 0 : i+1;
+            }
+        }
+    }
 
 }
 
@@ -132,10 +155,3 @@ int r=0;
 //@Override
 //public void windowClosing(WindowEvent e) {
 //        // Обработка закрытия окна
-
-//       String path64 = "C:\\08_JAVA\\SimpleAnimation\\src\\media\\Earth.png";
-//       String path65 = "C:\\08_JAVA\\SimpleAnimation\\src\\media\\Mars.png";
-//       String path66 = "C:\\08_JAVA\\SimpleAnimation\\src\\media\\Jupiter.png";
-//       String path67 = "C:\\08_JAVA\\SimpleAnimation\\src\\media\\Saturn.png";
-//       String path68 = "C:\\08_JAVA\\SimpleAnimation\\src\\media\\Uranus.png";
-//       String path69 = "C:\\08_JAVA\\SimpleAnimation\\src\\media\\Neptune.png";
